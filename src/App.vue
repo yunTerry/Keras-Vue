@@ -1,17 +1,17 @@
 <template>
-  <div id="main">
-    <div id="left">
-      <div id="pick">
+  <div>
+    <div class="left">
+      <div class="pick">
           <a href="javascript:;" class="pickfile">选取图片
               <input type="file" accept="image/*" @change="preview($event)">
           </a>
       </div>
-      <div id="result">
+      <div class="result">
            <ve-bar :data="chartData" :settings="chartSettings"></ve-bar>
       </div>
     </div>
-    <div id="right" class="imgBox">
-      <div class="inbox">
+    <div class="right">
+      <div class="imgbox">
           <img :src="imgurl">
       </div>
     </div>
@@ -24,7 +24,7 @@ export default {
     this.chartSettings = {
       labelMap: {
         label: "标签",
-        probability: "概率"
+        probability: "识别结果"
       },
       dataOrder: {
         label: "probability",
@@ -66,36 +66,16 @@ export default {
 </script>
 
 <style>
-#main {
-  margin: 1rem;
-}
-.imgBox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.inbox {
-  margin: 3rem;
-}
-.inbox img {
-  max-width: 100%;
-  max-height: 100%;
-}
-#left {
+.left {
   width: 50%;
   height: 600px;
   float: left;
 }
-#pick {
+.pick {
   height: 30%;
 }
-#result {
+.result {
   height: 70%;
-}
-#right {
-  width: 50%;
-  height: 600px;
-  float: right;
 }
 .pickfile {
   margin-left: 30%;
@@ -123,5 +103,24 @@ export default {
   background: #aadffd;
   border-color: #78c3f3;
   color: #004974;
+}
+
+.right {
+  margin: auto 5rem;
+  display: table;
+  height: 600px;
+}
+.imgbox {
+  width: 40%;
+  height: 600px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.imgbox img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin:  40px;
 }
 </style>
