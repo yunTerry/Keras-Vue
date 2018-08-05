@@ -41,16 +41,11 @@
         },
         methods: {
             preview(event) {
-                let _this = this;
-                var image = event.target.files[0];
-                if (!event || !window.FileReader) return;
-                let reader = new FileReader();
-                reader.readAsDataURL(image);
-                reader.onloadend = function () {
-                    _this.imgurl = this.result;
-                };
+                let image = event.target.files[0];
+                this.imgurl = window.URL.createObjectURL(image);
                 let fdata = new FormData();
                 fdata.append("image", image);
+                let _this = this;
                 this.$http
                     .post("/predict", fdata, {
                         headers: {"Content-Type": "multipart/form-data"}
