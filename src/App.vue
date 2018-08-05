@@ -43,6 +43,9 @@
             preview(event) {
                 let image = event.target.files[0];
                 this.imgurl = window.URL.createObjectURL(image);
+                this.postimg(image);
+            },
+            postimg(image) {
                 let fdata = new FormData();
                 fdata.append("image", image);
                 let _this = this;
