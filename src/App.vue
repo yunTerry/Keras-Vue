@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="result">
-                <ve-bar :data="chartData" :settings="chartSettings"></ve-bar>
+                <ve-bar v-if="ifshow" :data="chartData" :settings="chartSettings"></ve-bar>
             </div>
         </div>
         <div class="right">
@@ -24,7 +24,7 @@
             this.chartSettings = {
                 labelMap: {
                     label: "标签",
-                    probability: "识别结果"
+                    probability: "概率"
                 },
                 dataOrder: {
                     label: "probability",
@@ -33,6 +33,7 @@
             };
             return {
                 imgurl: "",
+                ifshow: false,
                 chartData: {
                     columns: ["label", "probability"],
                     rows: []
@@ -55,6 +56,7 @@
                     })
                     .then(function (res) {
                         if (res.data.success) {
+                            _this.ifshow = true;
                             _this.chartData.rows = res.data.predictions;
                         }
                     });
