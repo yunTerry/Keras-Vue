@@ -81,7 +81,7 @@
     }
 
     .pickfile {
-        margin-left: 30%;
+        margin-left: 20%;
         margin-top: 10%;
         position: relative;
         display: inline-block;
