@@ -2,25 +2,23 @@
     <div>
         <div class="left">
             <pick @getimage="useimage"></pick>
-            <ve-bar class="result" v-if="ifshow"
+            <ve-bar v-if="ifshow"
                     :data="chartData" :settings="chartSettings">
             </ve-bar>
         </div>
-        <div class="right">
-            <div class="imgbox">
-                <img :src="imgurl">
-            </div>
-        </div>
+        <imgview :imgUrl="imgurl"></imgview>
     </div>
 </template>
 
 <script>
 
     import pickPhoto from "./components/pickPhoto";
+    import imgView from "./components/imgView";
 
     export default {
         components: {
-            pick: pickPhoto
+            pick: pickPhoto,
+            imgview: imgView
         },
         data() {
             this.chartSettings = {
@@ -73,28 +71,7 @@
         float: left;
     }
 
-    .result {
+    ve-bar {
         height: 70%;
-    }
-
-    .right {
-        margin: auto 5rem;
-        display: table;
-        height: 600px;
-    }
-
-    .imgbox {
-        width: 40%;
-        height: 600px;
-        display: table-cell;
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    .imgbox img {
-        display: block;
-        max-width: 100%;
-        max-height: 100%;
-        margin: 40px;
     }
 </style>
