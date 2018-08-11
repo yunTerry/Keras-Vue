@@ -51,7 +51,7 @@
                         } else {
                             _this.poss = {
                                 ifsucc: false,
-                                msg: "无法识别"
+                                msg: "图片无法识别"
                             }
                         }
                     })
