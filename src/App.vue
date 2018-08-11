@@ -2,42 +2,27 @@
     <div>
         <div class="left">
             <pick @getimage="useimage"></pick>
-            <ve-bar v-if="ifshow"
-                    :data="chartData" :settings="chartSettings">
-            </ve-bar>
+            <resu :possb="poss"></resu>
         </div>
         <imgview :imgUrl="imgurl"></imgview>
     </div>
 </template>
 
 <script>
-
     import pickPhoto from "./components/pickPhoto";
     import imgView from "./components/imgView";
+    import result from "./components/result";
 
     export default {
         components: {
             pick: pickPhoto,
-            imgview: imgView
+            imgview: imgView,
+            resu: result
         },
         data() {
-            this.chartSettings = {
-                labelMap: {
-                    label: "标签",
-                    probability: "概率"
-                },
-                dataOrder: {
-                    label: "probability",
-                    order: "desc"
-                }
-            };
             return {
                 imgurl: "",
-                ifshow: false,
-                chartData: {
-                    columns: ["label", "probability"],
-                    rows: []
-                }
+                poss: {}
             };
         },
         methods: {
@@ -54,10 +39,7 @@
                         headers: {"Content-Type": "multipart/form-data"}
                     })
                     .then(function (res) {
-                        if (res.data.success) {
-                            _this.ifshow = true;
-                            _this.chartData.rows = res.data.predictions;
-                        }
+                        _this.poss = res.data
                     });
             }
         }
@@ -69,9 +51,5 @@
         width: 50%;
         height: 600px;
         float: left;
-    }
-
-    ve-bar {
-        height: 70%;
     }
 </style>
