@@ -22,10 +22,13 @@
                 }
             };
             return {
-                ifshow: true
+
             }
         },
         computed: {
+            ifshow: function () {
+                return this.possb.success
+            },
             chartData: function () {
                 return {
                     columns: ["label", "probability"],
