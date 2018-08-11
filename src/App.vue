@@ -22,7 +22,11 @@
         data() {
             return {
                 imgurl: "",
-                poss: {}
+                poss: {
+                    ifsucc: false,
+                    possblity: [],
+                    msg: ''
+                }
             };
         },
         methods: {
@@ -39,7 +43,23 @@
                         headers: {"Content-Type": "multipart/form-data"}
                     })
                     .then(function (res) {
-                        _this.poss = res.data
+                        if (res.data.success) {
+                            _this.poss = {
+                                ifsucc: true,
+                                possblity: res.data.predictions,
+                            }
+                        } else {
+                            _this.poss = {
+                                ifsucc: false,
+                                msg: "无法识别"
+                            }
+                        }
+                    })
+                    .catch(function (error) {
+                        _this.poss = {
+                            ifsucc: false,
+                            msg: error
+                        }
                     });
             }
         }

@@ -8,7 +8,7 @@
     export default {
         name: "result",
         props: {
-            possb: []
+            possb: {}
         },
         data() {
             this.chartSettings = {
@@ -27,12 +27,12 @@
         },
         computed: {
             ifshow: function () {
-                return this.possb.success
+                return this.possb.ifsucc
             },
             chartData: function () {
                 return {
                     columns: ["label", "probability"],
-                    rows: this.possb.predictions
+                    rows: this.possb.possblity
                 }
             }
         }
