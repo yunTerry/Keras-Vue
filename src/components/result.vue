@@ -1,14 +1,24 @@
 <template>
-    <div class="chart">
-        <ve-bar v-if="ifshow" :data="chartData" :settings="chartSettings"></ve-bar>
-        <p class="mesg" v-if="!ifshow">{{this.possb.msg}}</p>
+    <div>
+        <ve-bar v-if="ifsucc===2" :data="chartData" :settings="chartSettings"></ve-bar>
+        <p class="mesg" v-if="ifsucc>2">{{this.possb.msg}}</p>
+        <v-progress-circular v-if="ifsucc===1" class="mesg" :size="50" :width="6"
+                             indeterminate color="purple"></v-progress-circular>
     </div>
 </template>
 
 <script>
+
+    //导入vuetify中加载组件
+    import VProgressCircular from 'vuetify/es5/components/VProgressCircular'
+
     export default {
         name: "result",
+        components: {
+            VProgressCircular
+        },
         props: {
+            loading: false,
             possb: {}
         },
         data() {
@@ -25,7 +35,8 @@
             return {}
         },
         computed: {
-            ifshow: function () {
+            ifsucc: function () {
+                //1开始加载 2请求成功 3请求失败 4其他错误
                 return this.possb.ifsucc
             },
             chartData: function () {
@@ -39,13 +50,15 @@
 </script>
 
 <style scoped>
-    chart {
-        height: 70%;
-    }
 
     .mesg {
-        margin: 20% 0 0 20%;
+        margin: 10% 0 0 20%;
         font-size: 1.2rem;
         color: red;
+    }
+
+    v-progress-circular {
+        text-align: center;
+        z-index: 3;
     }
 </style>
