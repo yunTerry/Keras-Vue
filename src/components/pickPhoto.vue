@@ -1,7 +1,7 @@
 <template>
     <div class="pick">
         <a href="javascript:" class="pickfile">选取图片
-            <input type="file" accept="image/*" @change="preview($event)">
+            <input type="file" accept="image/*" @change="getFile($event)">
         </a>
     </div>
 </template>
@@ -10,7 +10,7 @@
     export default {
         name: "pickPhoto",
         methods: {
-            preview(event) {
+            getFile(event) {
                 let image = event.target.files[0];
                 this.$emit("getimage", image)
             }

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>基于TensorFlow卷积神经网络的图片识别</h1>
+        <h1>基于Keras卷积神经网络的图片识别</h1>
         <div class="left">
             <pick @getimage="useimage"></pick>
             <resu :possb="poss" :loading="loading"></resu>
@@ -60,7 +60,7 @@
                     .catch(function (error) {
                         _this.poss = {
                             ifsucc: 4,
-                            msg: error
+                            msg: error.toString()
                         }
                     });
             }
