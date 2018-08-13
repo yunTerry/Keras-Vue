@@ -9,12 +9,15 @@
 
 <script>
 
+    // 引入v-charts中条形图
+    import VeBar from 'v-charts/lib/bar.common'
     //导入vuetify中加载组件
     import VProgressCircular from 'vuetify/es5/components/VProgressCircular'
 
     export default {
         name: "result",
         components: {
+            VeBar,
             VProgressCircular
         },
         props: {

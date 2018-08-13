@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import axios from 'axios'
-import VCharts from 'v-charts'
-
-Vue.use(VCharts);
 
 require('vuetify/src/stylus/app.styl');
 
