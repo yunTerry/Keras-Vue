@@ -7,33 +7,35 @@
 </template>
 
 <script>
-    export default {
-        name: "imgView",
-        props: {
-            imgUrl: String,
-        }
+export default {
+  name: "imgView",
+  computed: {
+    imgUrl: function() {
+      return this.$store.state.image;
     }
+  }
+};
 </script>
 
 <style scoped>
-    .imgview {
-        margin: auto 5rem;
-        display: table;
-        height: 600px;
-    }
+.imgview {
+  margin: auto 5rem;
+  display: table;
+  height: 600px;
+}
 
-    .imgbox {
-        width: 40%;
-        height: 600px;
-        display: table-cell;
-        text-align: center;
-        vertical-align: middle;
-    }
+.imgbox {
+  width: 40%;
+  height: 600px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
 
-    .imgbox img {
-        display: block;
-        max-width: 100%;
-        max-height: 100%;
-        margin: 40px;
-    }
+.imgbox img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 40px;
+}
 </style>
