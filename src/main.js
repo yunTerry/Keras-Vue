@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import axios from 'axios'
-import 'vuetify/src/stylus/app.styl';
 import Vuex from 'vuex'
 
 Vue.use(Vuex)

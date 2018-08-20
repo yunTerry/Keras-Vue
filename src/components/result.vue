@@ -13,6 +13,7 @@
     import VeBar from 'v-charts/lib/bar.common'
     //导入vuetify中加载组件
     import VProgressCircular from 'vuetify/es5/components/VProgressCircular'
+    import 'vuetify/src/stylus/app.styl'
 
 export default {
   name: "result",
