@@ -10,7 +10,7 @@
 export default {
   name: "imgView",
   computed: {
-    imgUrl: function() {
+    imgUrl() {
       return this.$store.state.image;
     }
   }

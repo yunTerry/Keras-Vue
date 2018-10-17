@@ -27,7 +27,7 @@ export default {
         .post("/predict", fdata, {
           headers: { "Content-Type": "multipart/form-data" }
         })
-        .then(function(res) {
+        .then(res => {
           if (res.data.success) {
             _this.$store.commit("updateData", {
               ifsucc: 2,
@@ -40,7 +40,7 @@ export default {
             });
           }
         })
-        .catch(function(error) {
+        .catch(error => {
           _this.$store.commit("updateData", {
             ifsucc: 4,
             msg: error.toString()
