@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: "pickPhoto",
   methods: {
@@ -23,8 +25,7 @@ export default {
       let fdata = new FormData();
       fdata.append("image", image);
       let _this = this;
-      this.$http
-        .post("/predict", fdata, {
+      axios.post("predict", fdata, {
           headers: { "Content-Type": "multipart/form-data" }
         })
         .then(res => {
