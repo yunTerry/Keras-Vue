@@ -1,41 +1,23 @@
 <template>
-    <div class="imgview">
-        <div class="imgbox">
-            <img :src="imgUrl">
-        </div>
-    </div>
+  <div class="imgbox">
+    <img :src="$store.state.image" />
+  </div>
 </template>
 
 <script>
-export default {
-  name: "imgView",
-  computed: {
-    imgUrl() {
-      return this.$store.state.image;
-    }
-  }
-};
+export default {};
 </script>
 
 <style scoped>
-.imgview {
-  margin: auto 5rem;
-  display: table;
-  height: 600px;
-}
-
 .imgbox {
-  width: 40%;
-  height: 600px;
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .imgbox img {
-  display: block;
+  margin-top: 60px;
   max-width: 100%;
   max-height: 100%;
-  margin: 40px;
 }
 </style>

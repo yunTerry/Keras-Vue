@@ -53,12 +53,9 @@ export default {
 </script>
 
 <style scoped>
-.pick {
-  height: 30%;
-}
 
 .pickfile {
-  margin-left: 20%;
+  margin-left: 40%;
   margin-top: 10%;
   position: relative;
   display: inline-block;

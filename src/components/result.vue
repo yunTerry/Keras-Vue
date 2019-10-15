@@ -1,10 +1,16 @@
 <template>
-    <div>
-        <load v-if="ifsucc===1" class="mesg" :size="50" :width="6"
-                             indeterminate color="purple"></load>
-        <ve-bar v-if="ifsucc===2" :data="chartData" :settings="chartSettings"></ve-bar>
-        <p class="mesg" v-if="ifsucc>2">{{errmsg}}</p>
-    </div>
+  <div class="res-con">
+    <load
+      v-if="$store.state.ifsucc===1"
+      class="mesg"
+      :size="50"
+      :width="6"
+      indeterminate
+      color="purple"
+    />
+    <ve-bar v-else-if="$store.state.ifsucc===2" :data="chartData" :settings="chartSettings" />
+    <p class="mesg" v-else>{{$store.state.msg}}</p>
+  </div>
 </template>
 
 <script>
@@ -34,32 +40,23 @@ export default {
     return {};
   },
   computed: {
-    ifsucc() {
-      //1开始加载 2请求成功 3请求失败 4其他错误
-      return this.$store.state.ifsucc;
-    },
     chartData() {
       return {
         columns: ["label", "probability"],
         rows: this.$store.state.possblity
       };
-    },
-    errmsg() {
-      return this.$store.state.msg;
     }
   }
 };
 </script>
 
 <style scoped>
+.res-con {
+  padding: 40px 50px 0 0;
+}
 .mesg {
-  margin: 10% 0 0 40%;
+  margin: 20% 0 0 30%;
   font-size: 1.2rem;
   color: red;
-}
-
-v-progress-circular {
-  text-align: center;
-  z-index: 3;
 }
 </style>

@@ -1,12 +1,14 @@
 <template>
-    <div>
-        <h1>基于Keras卷积神经网络的图片识别</h1>
-        <div class="left">
-            <pick></pick>
-            <resu></resu>
-        </div>
-        <imgview></imgview>
+  <div>
+    <h1>基于Keras卷积神经网络的图片识别</h1>
+    <div id="main">
+      <div id="left">
+        <pick id="pick" />
+        <resu id="resu" />
+      </div>
+      <imgview id="right" />
     </div>
+  </div>
 </template>
 
 <script>
@@ -23,15 +25,27 @@ export default {
 };
 </script>
 
-<style>
-.left {
-  width: 50%;
-  height: 600px;
-  float: left;
-}
-
+<style scoped>
 h1 {
-  margin-top: 30px;
+  margin: 30px;
   text-align: center;
+}
+#main {
+  display: flex;
+  margin: auto 50px;
+  height: 600px;
+  justify-content: center;
+}
+#left {
+  flex: 1;
+}
+#right {
+  flex: 1;
+}
+#pick {
+  height: 30%;
+}
+#resu {
+  height: 70%;
 }
 </style>
