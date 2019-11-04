@@ -1,15 +1,10 @@
 <template>
-  <div class="res-con">
-    <load
-      v-if="$store.state.ifsucc===1"
-      class="mesg"
-      :size="50"
-      :width="6"
-      indeterminate
-      color="purple"
-    />
-    <ve-bar v-else-if="$store.state.ifsucc===2" :data="chartData" :settings="chartSettings" />
-    <p class="mesg" v-else>{{$store.state.msg}}</p>
+  <div>
+    <ve-bar v-if="$store.state.ifsucc===2" :data="chartData" :settings="chartSettings" />
+    <dir class="res-con" v-else>
+      <load v-if="$store.state.ifsucc===1" :size="50" :width="6" indeterminate color="purple" />
+      <p class="mesg" v-else>{{$store.state.msg}}</p>
+    </dir>
   </div>
 </template>
 
@@ -52,10 +47,12 @@ export default {
 
 <style scoped>
 .res-con {
-  padding: 40px 50px 0 0;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 .mesg {
-  margin: 20% 0 0 30%;
   font-size: 1.2rem;
   color: red;
 }

@@ -38,6 +38,7 @@ h1 {
 }
 #left {
   flex: 1;
+  margin-right: 40px;
 }
 #right {
   flex: 1;
