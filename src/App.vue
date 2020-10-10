@@ -4,6 +4,7 @@
     <div id="main">
       <div id="left">
         <pick id="pick" />
+        <resu id="resu" />
       </div>
       <imgview id="right" />
     </div>
@@ -13,11 +14,13 @@
 <script>
 import pickPhoto from "./components/pickPhoto";
 import imgView from "./components/imgView";
+import result from "./components/result";
 
 export default {
   components: {
     pick: pickPhoto,
     imgview: imgView,
+    resu: result
   }
 };
 </script>
