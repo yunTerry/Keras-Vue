@@ -1,24 +1,28 @@
-# keras-vue
+# Vue Client For Image Recognition
 
-## Project setup
-```
-npm install
-```
+## Quick Start
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+I've packaged Tensorflow、[Keras-Vue](https://github.com/yunTerry/Keras-Vue) and ResNet-50 model into a docker image:
 
-### Compiles and minifies for production
-```
-npm run build
-```
+https://hub.docker.com/r/yunterry/keras-vue
 
-### Lints and fixes files
+Just run:
+``` sh
+docker run -p 80:80 yunterry/keras-vue
 ```
-npm run lint
-```
+Open browser  `http://<your-server-ip>`
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![](image/1.jpg)
+
+For the first time, the recognition may be very slow, because the CNN model needs to be warmed up, after that it will be much faster
+
+## Used in project
+
+  * Axios
+  * Vuex
+  * Vuetify
+  * Echarts
+  
+## Android Client
+
+https://github.com/yunTerry/Keras-Android
