@@ -2,11 +2,8 @@
 
 ## Quick Start
 
-I've packaged Tensorflow、[Keras-Vue](https://github.com/yunTerry/Keras-Vue) and ResNet-50 model into a docker image:
+I've packaged Tensorflow、[Keras-Vue](https://github.com/yunTerry/Keras-Vue) and ResNet-50 model into a [docker image](https://hub.docker.com/r/yunterry/keras-vue), just run:
 
-https://hub.docker.com/r/yunterry/keras-vue
-
-Just run:
 ``` sh
 docker run -p 80:80 yunterry/keras-vue
 ```
